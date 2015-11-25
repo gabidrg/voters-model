@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<parameters>
+
+	<parameter name="randomSeed" displayName="Default Random Seed" type="int" defaultValue="__NULL__" />
+	<parameter name="initialNumAgents" displayName="Initial Num Agents" type="int" 
+		defaultValue="2500" 
+		isReadOnly="false" 
+		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"							
+	/>
+	<parameter name="worldWidth" displayName="World Width" type="int" 
+		defaultValue="50" 
+		isReadOnly="false" 
+		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"							
+	/>
+	<parameter name="worldHeight" displayName="World Height" type="int" 
+		defaultValue="50" 
+		isReadOnly="false" 
+		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"							
+	/>
+	<parameter name="percentVotersA" displayName="Percentage Voters A (0: random)" type="int" 
+		defaultValue="0" 
+		isReadOnly="false" 
+		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"						
+	/>
+	<parameter name="percentVotersB" displayName="Percentage Voters B (0: random)" type="int" 
+		defaultValue="0" 
+		isReadOnly="false" 
+		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"						
+	/>
+	<parameter name="queryType" displayName="Query type (1: Moore, 2: VN)" type="int" 
+		defaultValue="1" 
+		isReadOnly="false" 
+		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"							
+	/>
+
+</parameters>

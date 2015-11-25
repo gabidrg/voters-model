@@ -58,13 +58,14 @@ public class Agent {
 		Context<Object> context = (Context<Object>)ContextUtils.getContext(this);
 		@SuppressWarnings("unchecked")
 		Grid<Object> grid = (Grid<Object>)context.getProjection("Grid");	
+		Integer radius = this.getQueryRadius();
 		
 		// Set query type, default is Moore neighborhood
 		if (this.getQueryType() == 2) {
-			this.neighborhood = getVonNeumannQuery(grid);
+			this.neighborhood = getVonNeumannQuery(grid, radius);
 		}
 		else {
-			this.neighborhood = getMooreQuery(grid);
+			this.neighborhood = getMooreQuery(grid, radius);
 		}
 		
 		// compute majority in the neighborhood and make a choice
@@ -78,14 +79,19 @@ public class Agent {
 		Parameters p = RunEnvironment.getInstance().getParameters();
 		return (int) p.getValue("queryType");
 	}
+	
+	private int getQueryRadius() {
+		Parameters p = RunEnvironment.getInstance().getParameters();
+		return (int) p.getValue("queryRadius");
+	}
 
-	private MooreQuery<Object> getMooreQuery(Grid<Object> grid) {
-		MooreQuery<Object> query = new MooreQuery<Object>(grid, this);
+	private MooreQuery<Object> getMooreQuery(Grid<Object> grid, int radius) {
+		MooreQuery<Object> query = new MooreQuery<Object>(grid, this, radius, radius);
 		return query;
 	}
 	
-	private VNQuery<Object> getVonNeumannQuery(Grid<Object> grid) {
-		VNQuery<Object> query = new VNQuery<Object>(grid, this);
+	private VNQuery<Object> getVonNeumannQuery(Grid<Object> grid, int radius) {
+		VNQuery<Object> query = new VNQuery<Object>(grid, this, radius, radius);
 		return query;
 	}
 	

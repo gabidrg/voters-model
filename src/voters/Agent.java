@@ -52,7 +52,7 @@ public class Agent {
 		return choosingAB;
 	}
 	
-	@ScheduledMethod(start = 1, interval = 1, priority = 1)
+	@ScheduledMethod(start = 0, interval = 1, priority = 1)
 	public void step() {
 		@SuppressWarnings("unchecked")
 		Context<Object> context = (Context<Object>)ContextUtils.getContext(this);
